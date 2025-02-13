@@ -4,6 +4,9 @@ This repository provides a **Docker-based Apache Spark cluster** setup with:
 - **Spark Master**
 - **Multiple Spark Workers**
 - **Spark History Server**
+- **HDFS**
+- **Airflow**
+- **PostgreSQL**
 
 ## 🚀 Setup & Running the Cluster
 
@@ -69,6 +72,54 @@ docker-compose down
 To **remove everything** (including volumes):
 ```bash
 docker-compose down -v
+```
+
+## Working with PostgreSQL
+
+### 1️⃣ **Access PostgreSQL database inside the container**
+```bash
+docker exec -it postgres-db psql -U user -d airbnb
+```
+### 2️⃣ **Run a SQL command inside PostgreSQL**
+```bash
+docker exec -it postgres-db psql -U user -d airbnb -c "SELECT * FROM table_name;"
+```
+
+## Managing Hadoop (HDFS)
+
+### 1️⃣ **Format the NameNode (Only for first-time setup)**
+```bash
+docker exec -it namenode hdfs namenode -format
+```
+
+### 2️⃣ **List HDFS files**
+```bash
+docker exec -it namenode hdfs dfs -ls /
+```
+
+### 3️ **Upload a file to HDFS**
+```bash
+docker exec -it namenode hdfs dfs -put /local/path/file.txt /hdfs/path/
+```
+
+## Managing Airflow
+
+### 1️⃣ **Access Airflow web UI**
+- Airflow UI: http://localhost:8081
+
+### 2️⃣ **Manually trigger an Airflow DAG**
+```bash
+docker exec -it airflow airflow dags trigger <dag_id>
+```
+
+### 3️⃣ **Check Airflow DAGs**
+```bash
+docker exec -it airflow airflow dags list
+```
+
+### 4️⃣ **Restart Airflow**
+```bash
+docker-compose restart airflow
 ```
 
 ## 📝 Note
