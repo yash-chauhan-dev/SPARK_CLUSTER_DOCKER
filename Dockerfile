@@ -56,6 +56,6 @@ RUN chmod u+x /opt/spark/sbin/* && \
 ENV PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
 
 # Copy entrypoint script
-COPY entrypoint.sh .
+COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
