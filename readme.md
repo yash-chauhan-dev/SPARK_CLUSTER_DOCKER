@@ -47,14 +47,14 @@ docker-compose up -d --scale spark-worker=2  # Reduce to 2 workers
 ### 6️⃣ **Submit an ETL Job**
 To run an **ETL pipeline** (e.g., `main.py`):
 ```bash
-docker exec -it da-spark-master spark-submit \
+docker exec -it spark-master-node spark-submit \
   --master spark://spark-master:7077 \
   --deploy-mode client \
   /path/to/main.py
 ```
 To pass arguments:
 ```bash
-docker exec -it da-spark-master spark-submit \
+docker exec -it spark-master-node spark-submit \
   --master spark://spark-master:7077 \
   --deploy-mode client \
   /path/to/main.py arg1 arg2
