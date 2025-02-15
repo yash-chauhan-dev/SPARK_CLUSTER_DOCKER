@@ -1,8 +1,5 @@
 # Set-up Apache Pyspark Cluster Locally using Docker
 
-Explaination Video:
-[![Youtube Link](https://img.youtube.com/vi/Mrp1VAa_HL0/0.jpg)](https://www.youtube.com/watch?v=Mrp1VAa_HL0)
-
 This repository provides a **Docker-based Apache Spark cluster** setup with:
 - **Spark Master**
 - **Multiple Spark Workers**
@@ -131,3 +128,7 @@ docker-compose restart airflow
 - Dynamically **scale workers** based on workload.
 
 🚀 **Now you're ready to run your Apache Spark cluster with Docker!**
+
+## Youtube Video Link
+
+[![Youtube Link](https://img.youtube.com/vi/Mrp1VAa_HL0/0.jpg)](https://www.youtube.com/watch?v=Mrp1VAa_HL0)
